@@ -1,0 +1,115 @@
+\lstset{basicstyle=\normalsize}
+
+\title{Recursão}
+\frame{\maketitle}
+
+\begin{frame}{``Drawing hands'', M. C. Escher}
+\begin{center}
+  \includegraphics[scale=.725]{img/drawingHands-escher.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Arte gráfica influenciada por Escher}
+\begin{center}
+  \includegraphics[scale=.2]{img/recursive-escher.png}
+\end{center}
+{\vfill\tiny Fonte: \url{http://inspirabox.com/inspiration/16-M.-C.-Escher-Recursive/}}
+\end{frame}
+
+\begin{frame}{Recursão}{Definição}
+  \begin{itemize}
+  \item {\bf Algoritmo recursivo}: Quando um problema pode ser
+    dividido em instâncias menores, e o algoritmo usado para as
+    instâncias menores é o mesmo do problema original, dizemos que
+    este algoritmo é recursivo.
+    \pause
+  \item {\bf Função recursiva}: Uma função recursiva contem a
+    implementação de um algoritmo recursivo e pode chamar a si própria,
+    tendo como argumento instâncias cada vez menores da entrada, para no
+    final processar toda a entrada do problema a ser solucionado.
+  \end{itemize}
+\end{frame}
+
+ \begin{frame}[fragile]{Fatorial}{Exemplo}
+ 
+ Vamos adotar a seguinte fórmula para a implementação do cálculo do fatorial:
+
+  \begin{numcases}{n!=}
+   0,  & se $n < 0$, \\
+   1,  & se $n = 0$, \\
+   \prod_{k=1}^n k, & se $n \geq 1$.
+ \end{numcases}
+ 
+\end{frame}
+
+\begin{frame}[fragile]{Fatorial sem recursão}
+  
+  Implementação usando o método iterativo:\bigskip
+
+  \begin{lstlisting}
+    int Fatorial(int n)
+    {
+        int i, fat = n >= 0 ? 1 : 0;
+      
+        for (i = 2; i <= n; i++)
+            fat = fat * i;
+
+        return fat;
+    }
+  \end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]{Fatorial com recursão}
+  
+  Implementação usando o método recursivo:\bigskip
+
+  \begin{lstlisting}
+    int FatorialR(int n)
+    {
+      if (n < 0)
+          return 0;
+      else if (n == 0 || n == 1)
+          return 1;
+      else
+          return n * FatorialR(n - 1);
+    }
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Fatorial com recursão, cont.}{Exemplo}
+  Cálculo recursivo de $4!$ usando a função {\tt FatorialR()}.
+  
+  \bigskip
+  \begin{lstlisting}
+    FatorialR(4)
+        |_ 4 * FatorialR(3)
+                   |_ 3 * FatorialR(2)
+                              |_ 2 * FatorialR(1)
+                                 2 * 1  _|
+                      3 * 2  _|
+           4 * 6  _|
+    24 _|
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}{Vantagens}{Recursão}
+  \begin{itemize}
+  \item Pelo técnica de divisão e conquista, as instâncias menores do
+    problema podem ter menos passos do que a solução que processa toda
+    a instância do problema.
+    \pause
+  \item Antigamente, o custo das chamadas de funções era relativamente
+    alto, porém, com a evolução de técnicas de otimização dos
+    compiladores e processadores, este custo pode ser normalmente 
+    desconsiderado.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Desvantagem}{Recursão}  
+  \begin{itemize}
+  \item Se o número de instâncias menores do problema for muito grande, 
+    pode haver estouro da pilha ({\it stack}).
+  \end{itemize}
+  
+\end{frame}

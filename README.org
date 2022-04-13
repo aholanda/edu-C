@@ -1,0 +1,9 @@
+* edu-C
+Educational material related to C language.
+
+- _slides: [[_slides][slides]] about C language in LaTeX format;
+- func: [[func/][function]] demo programs;
+- io: [[http://holanda.xyz/files/2015-08-17-es.pdf][input/output]] demo programs;
+- matrix: [[matrix/][matrix]] handling and operations demo programs;
+- mem: [[http://holanda.xyz/files/2013-11-07-aloca-ic.pdf][memory allocation]] demo programs;
+- recursion: [[recursion/][recursion]] mechanism demo programs.

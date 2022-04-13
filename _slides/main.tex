@@ -1,0 +1,23 @@
+
+\documentclass{beamer}
+
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{cases}
+\usepackage{listings}
+\lstset{language=C,inputencoding=utf8,basicstyle=\footnotesize, 
+  flexiblecolumns=true, numbers=left, numberstyle=\tiny\color{gray}, 
+  commentstyle=\scriptsize\color{black!50},mathescape}
+  
+\font\ninerm=cmr9
+\def\CEE{{\ninerm C\spacefactor1000}}
+ \def\bug#1{{\it bug#1\/}}
+
+\newcounter{saveenum}%to resume item enumeration
+
+\begin{document}
+\date{\today}
+\input function
+\input recursion
+\input mem
+\end{document}
